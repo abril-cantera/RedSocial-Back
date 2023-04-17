@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 
 app.use(express.json());
 
-const whitelist = ['http://18.191.55.134:3000/red/user', 'http://localhost:3000/#/', 'http://localhost:3000', 'http://abrilgonzalez-com.stackstaging.com', 'http://abrilgonzalez-com.stackstaging.com/', 'http://abrilgonzalez-com.stackstaging.com/#/', 'http://abrilgonzalez-com.stackstaging.com/#', 'http://localhost:3000/?#/profile',];
+const whitelist = ['http://18.191.55.134:3000/red/user', 'http://localhost:3000/#/', 'http://localhost:3000', 'http://abrilgonzalez-com.stackstaging.com', 'http://abrilgonzalez-com.stackstaging.com/', 'http://abrilgonzalez-com.stackstaging.com/#/', 'http://abrilgonzalez-com.stackstaging.com/#', 'http://localhost:3000/?#/profile', 'http://localhost:3000'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
