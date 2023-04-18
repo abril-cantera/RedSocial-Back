@@ -1,5 +1,5 @@
 const express = require('express');
-const multer = require('multer')
+
 const UserService = require('../services/user.service');
 const validatorHandler = require('../middlewares/validator.handler');
 const { updateUserSchema, createUserSchema, getUserSchema } = require('../schemas/user.schema');
@@ -7,7 +7,7 @@ const { updateUserSchema, createUserSchema, getUserSchema } = require('../schema
 const router = express.Router();
 const service = new UserService();
 
-const upload = multer();
+
 
 router.get('/', async (req, res, next) => {
   try {
@@ -44,15 +44,14 @@ router.post('/',
   }
 );
 
-router.patch('/:id', upload.single('image'),
+router.patch('/:id',
   validatorHandler(getUserSchema, 'params'),
   validatorHandler(updateUserSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       const body = req.body;
-      const imageId = req.file.buffer;
-      const users = await service.update(id, body, imageId);
+      const users = await service.update(id, body);
       res.json(users);
     } catch (error) {
       next(error);
