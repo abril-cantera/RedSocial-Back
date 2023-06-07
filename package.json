@@ -41,7 +41,7 @@
     "webpack-dev-server": "^4.13.2"
   },
   "engines": {
-    "node": "16.19.1"
+    "node": "18.15.0"
   },
   "eslintConfig": {
     "extends": [
